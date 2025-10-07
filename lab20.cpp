@@ -17,11 +17,11 @@ for (int i = 0; i < SIZE; i++){
     prices[i] = dollars + cents;
 }
 }
-Chair(int l) {
+Chair(int l, double p[]) {
 prices = new double[SIZE];
 legs = l;
 for (int i = 0; i < SIZE; i++)
-prices[i] = 0;
+prices[i] = p[i];
 }
 // setters and getters
 void setLegs(int l) { legs = l; }
@@ -50,8 +50,8 @@ cout << fixed << setprecision(2);
 Chair *chairPtr = new Chair;
 chairPtr->print();
 //creating dynamic chair object with constructor
-Chair *livingChair = new Chair(3);
-livingChair->setPrices(525.25, 434.34, 252.52);
+double pprices[SIZE] = {100.0, 200.0, 300.0};
+Chair *livingChair = new Chair(3, pprices);
 livingChair->print();
 delete livingChair;
 livingChair = nullptr;
