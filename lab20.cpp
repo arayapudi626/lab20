@@ -8,11 +8,14 @@ int legs;
 double * prices;
 public:
 // constructors
-Chair(int l, double *p) {
+Chair() {
 prices = new double[SIZE];
-legs = l;
-for (int i = 0; i < SIZE; i++)
-prices[i] = 0;
+legs = 3 + rand() % 2;
+for (int i = 0; i < SIZE; i++){
+    double dollars = 100 + rand() % 900;
+    double cents = (rand() % 100) / 100.0;
+    prices[i] = dollars + cents;
+}
 }
 Chair(int l) {
 prices = new double[SIZE];
@@ -44,9 +47,7 @@ cout << endl << endl;
 int main() {
 cout << fixed << setprecision(2);
 //creating pointer to first chair object
-int randomNum = 3 + rand() % 2;
-double * randomPrice;
-Chair *chairPtr = new Chair(randomNum, randomPrice);
+Chair *chairPtr = new Chair;
 chairPtr->print();
 //creating dynamic chair object with constructor
 Chair *livingChair = new Chair(3);
